@@ -16,7 +16,7 @@ namespace SquidVasion
 
         Game1 _gameOne;
 
-        public Crosshair(Texture2D art, Vector2 position, Game1 game1) : base(art, position) 
+        public Crosshair(Texture2D art, Game1 game1) : base(art) 
         {
             _screenBounds = new Rectangle(0, 0, Game1.screenSize.X, Game1.screenSize.Y);
             _gameOne = game1;

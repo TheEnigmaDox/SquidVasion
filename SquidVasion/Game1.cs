@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
+using System.Collections.Generic;
 
 namespace SquidVasion
 {
@@ -9,13 +11,23 @@ namespace SquidVasion
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
+        //Debug variables for showing fps
+        //int frameCount = 0;
+        //double elapsedTime = 0;
+        //int fps = 0;
+        //SpriteFont debugFont;
+
         public static Point screenSize = new Point(800, 480);
+
+        public static Random rng = new Random();
 
         StaticGraphic background;
 
         Crosshair crosshair;
 
         PlayerShip playerShip;
+
+        List<SpaceDust> spaceDust; 
 
         public Game1()
         {
@@ -32,6 +44,8 @@ namespace SquidVasion
             _graphics.PreferredBackBufferHeight = screenSize.Y;
             _graphics.ApplyChanges();
 
+            spaceDust = new List<SpaceDust>();
+
             base.Initialize();
         }
 
@@ -41,12 +55,18 @@ namespace SquidVasion
 
             // TODO: use this.Content to load your game content here
 
-            background = new StaticGraphic(Content.Load<Texture2D>("Textures/starfield"),
-                new Vector2(400, 240));
+            //debugFont = Content.Load<SpriteFont>("DebugFont");
 
-            crosshair = new Crosshair(Content.Load<Texture2D>("Textures/crosshair2"), Vector2.Zero, this);
+            background = new StaticGraphic(Content.Load<Texture2D>("Textures/starfield"));
+
+            crosshair = new Crosshair(Content.Load<Texture2D>("Textures/crosshair2"), this);
 
             playerShip = new PlayerShip(Content.Load<Texture2D>("Textures/rtype ship9"), Vector2.Zero);
+
+            for(int i = 0; i < 20; i++)
+            {
+                spaceDust.Add(new SpaceDust(Content.Load<Texture2D>("Textures/pixel"), new Vector2(rng.Next((int)1, 5), 0), Game1.rng.Next(1, 5)));
+            }
         }
 
         protected override void Update(GameTime gameTime)
@@ -58,12 +78,32 @@ namespace SquidVasion
 
             crosshair.Update(Mouse.GetState());
 
+            playerShip.Update(Keyboard.GetState());
+
+            for (int i = 0; i < spaceDust.Count; i++)
+            {
+                SpaceDust eachDust = spaceDust[i];
+                eachDust.UpdateSpaceDust();
+            }
+
+            //Debug for fps
+            //elapsedTime += gameTime.ElapsedGameTime.TotalSeconds;
+
+            //frameCount++;
+
+            //if (elapsedTime >= 1.0)
+            //{
+            //    fps = frameCount;
+            //    frameCount = 0;
+            //    elapsedTime -= 1.0;
+            //}
+
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
 
@@ -73,7 +113,15 @@ namespace SquidVasion
 
             crosshair.CrossHair(_spriteBatch);
 
-            playerShip.Draw(_spriteBatch);
+            playerShip.DrawMotionGraphic(_spriteBatch);
+
+            for (int i = 0; i < spaceDust.Count; i++)
+            {
+                SpaceDust eachDust = spaceDust[i];
+                eachDust.DrawMotionGraphic(_spriteBatch);
+            }
+
+            //_spriteBatch.DrawString(debugFont, $"FPS: {fps}", new Vector2(10, 10), Color.White);
 
             _spriteBatch.End();
 
