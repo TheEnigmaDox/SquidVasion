@@ -23,7 +23,7 @@ namespace SquidVasion
                 SpriteEffects.None,
                 0f);
 
-            spriteBatch.Draw(Game1.debugPixel, Rect, Color.White);
+            //spriteBatch.Draw(Game1.debugPixel, Rect, Color.White);
         }
     }
 }

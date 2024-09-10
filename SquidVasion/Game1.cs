@@ -66,7 +66,7 @@ namespace SquidVasion
 
             crosshair = new Crosshair(Content.Load<Texture2D>("Textures/crosshair2"), this, 2);
 
-            playerShip = new PlayerShip(Content.Load<Texture2D>("Textures/rtype ship9"), Vector2.Zero);
+            playerShip = new PlayerShip(Content.Load<Texture2D>("Textures/rtype ship9"), Vector2.Zero, Content.Load<Texture2D>("Textures/rtype rocket"));
 
             for(int i = 0; i < 20; i++)
             {
@@ -88,7 +88,7 @@ namespace SquidVasion
 
             // TODO: Add your update logic here
             
-            playerShip.Update(Keyboard.GetState());
+            playerShip.Update(gameTime, Keyboard.GetState(), Mouse.GetState());
 
             crosshair.Update(Mouse.GetState(), playerShip.Position);
 
@@ -156,6 +156,10 @@ namespace SquidVasion
                 enemies[i].DrawAnimation(_spriteBatch);
             }
 
+            for (int i = 0; i < playerShip.Rockets.Count; i++)
+            {
+                playerShip.Rockets[i].DrawMotionGraphic(_spriteBatch);
+            }
             _spriteBatch.DrawString(debugFont, $"FPS: {fps}", new Vector2(10, 10), Color.White);
 
             _spriteBatch.End();
