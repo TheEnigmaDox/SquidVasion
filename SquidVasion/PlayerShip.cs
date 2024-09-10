@@ -9,7 +9,7 @@ namespace SquidVasion
     {
         Vector2 _maxVelocity = new Vector2(3, 3);
 
-        public PlayerShip(Texture2D art, Vector2 velocity, Texture2D debugPixel) : base(art, velocity, debugPixel, 1)
+        public PlayerShip(Texture2D art, Vector2 velocity) : base(art, velocity, 1)
         {
             Position = new Vector2(100, 240);
             _velocity = velocity;

@@ -13,14 +13,9 @@ namespace SquidVasion
         Vector2 _frameSize;
 
         Rectangle _sourceRect;
-
-        Texture2D _debugPixel;
-
-        public AnimatedGraphic(Texture2D art, Vector2 velocity, Texture2D debugPixel, Vector2 frameSize, int numOfFrames, float fps) :
-            base(art, velocity, debugPixel) 
+        public AnimatedGraphic(Texture2D art, Vector2 velocity, Vector2 frameSize, int numOfFrames, float fps) :
+            base(art, velocity) 
         {
-            _debugPixel = debugPixel;
-
             _maxFramesPerSecond = fps;
 
             _framesPerSecond = _maxFramesPerSecond;

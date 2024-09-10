@@ -30,7 +30,7 @@ namespace SquidVasion
         List<SpaceDust> spaceDust;
         List<Enemy> enemies;
 
-        Texture2D debugPixel;
+        public static Texture2D debugPixel;
 
         public Game1()
         {
@@ -66,18 +66,17 @@ namespace SquidVasion
 
             crosshair = new Crosshair(Content.Load<Texture2D>("Textures/crosshair2"), this, 2);
 
-            playerShip = new PlayerShip(Content.Load<Texture2D>("Textures/rtype ship9"), Vector2.Zero, debugPixel);
+            playerShip = new PlayerShip(Content.Load<Texture2D>("Textures/rtype ship9"), Vector2.Zero);
 
             for(int i = 0; i < 20; i++)
             {
-                spaceDust.Add(new SpaceDust(Content.Load<Texture2D>("Textures/pixel"), new Vector2(rng.Next((int)1, 5), 0), Game1.rng.Next(1, 3), debugPixel));
+                spaceDust.Add(new SpaceDust(Content.Load<Texture2D>("Textures/pixel"), new Vector2(rng.Next((int)1, 5), 0), Game1.rng.Next(1, 3)));
             }
 
             for (int i = 0; i < 11; i++)
             {
                 enemies.Add(new Enemy(Content.Load<Texture2D>("Textures/rtype evilrocket"),
                     new Vector2(rng.NextSingle() * 5 + 1 , 0),
-                    debugPixel,
                     new Vector2(27, 0), 2, 0.3f));
             }
         }
@@ -96,12 +95,12 @@ namespace SquidVasion
             for (int i = 0; i < spaceDust.Count; i++)
             {
                 SpaceDust eachDust = spaceDust[i];
-                eachDust.UpdateSpaceDust();
+                eachDust.Update();
             }
 
             for(int i = 0; i < enemies.Count; i++)
             {
-                enemies[i].UpdateEnemies(playerShip.Rect);
+                enemies[i].Update(playerShip.Rect);
                 enemies[i].UpdateAnimation(gameTime);
 
                 if (enemies[i].Collided)
@@ -114,7 +113,6 @@ namespace SquidVasion
             {
                 enemies.Add(new Enemy(Content.Load<Texture2D>("Textures/rtype evilrocket"),
                     new Vector2(rng.NextSingle() * 5 + 1, 0),
-                    debugPixel,
                     new Vector2(27, 0), 2, 0.3f));
             }
 

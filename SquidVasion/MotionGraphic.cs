@@ -7,12 +7,10 @@ namespace SquidVasion
     class MotionGraphic : StaticGraphic
     {
         protected Vector2 _velocity;
-        Texture2D _debugPixel;
-
-        public MotionGraphic(Texture2D art, Vector2 velocity, Texture2D debugPixel, int scale = 1) : base(art, scale)
+        
+        public MotionGraphic(Texture2D art, Vector2 velocity, int scale = 1) : base(art, scale)
         {
             _velocity = velocity;
-            _debugPixel = debugPixel;
         }
 
         public void DrawMotionGraphic(SpriteBatch spriteBatch)
@@ -25,7 +23,7 @@ namespace SquidVasion
                 SpriteEffects.None,
                 0f);
 
-            //spriteBatch.Draw(_debugPixel, Rect, Color.White);
+            spriteBatch.Draw(Game1.debugPixel, Rect, Color.White);
         }
     }
 }

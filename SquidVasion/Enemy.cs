@@ -9,15 +9,15 @@ namespace SquidVasion
     internal class Enemy : AnimatedGraphic
     {
         public bool Collided { get; private set; }
-        public Enemy(Texture2D art, Vector2 velocity, Texture2D debugPixel, Vector2 frameSize, int numOfFrames, float fps) :
-            base(art, velocity, debugPixel, frameSize, numOfFrames, fps)
+        public Enemy(Texture2D art, Vector2 velocity, Vector2 frameSize, int numOfFrames, float fps) :
+            base(art, velocity, frameSize, numOfFrames, fps)
         {
             Position = new Vector2(Game1.screenSize.X + _art.Width, Game1.rng.Next(0, Game1.screenSize.Y));
 
             Collided = false;
         }
 
-        public void UpdateEnemies(Rectangle playerRect)
+        public void Update(Rectangle playerRect)
         {
             UpdateRect();
 

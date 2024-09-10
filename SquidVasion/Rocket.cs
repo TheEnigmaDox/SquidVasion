@@ -7,7 +7,7 @@ namespace SquidVasion
     {
 
 
-        public Rocket(Texture2D art, Vector2 velocity, Texture2D debugPixel) : base(art, velocity, debugPixel)
+        public Rocket(Texture2D art, Vector2 velocity) : base(art, velocity)
         {
 
         }
