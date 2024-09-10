@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="SquidVasion.AnimatedGraphic">
+    <Position X="8.5" Y="7" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>BAAACIAACQAAAAEAAAAAAAAAAAIAAEAAAAAAAAIAAAA=</HashCode>
+      <FileName>AnimatedGraphic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SquidVasion.Crosshair">
+    <Position X="5.5" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>IAQAAAAIACAAAAAQAAAAAAAAAAAAAAAAADAAAAAAAAA=</HashCode>
+      <FileName>Crosshair.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SquidVasion.Enemy">
+    <Position X="8.5" Y="11" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAABIAA=</HashCode>
+      <FileName>Enemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SquidVasion.Game1">
+    <Position X="19.5" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>ABYEAAAAAQAACwAAAAEAAAAAAAEAAAAjAJAAAACAIAQ=</HashCode>
+      <FileName>Game1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SquidVasion.MotionGraphic">
+    <Position X="12.25" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>BAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MotionGraphic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SquidVasion.PlayerShip">
+    <Position X="16.5" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAARAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PlayerShip.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SquidVasion.Rocket">
+    <Position X="11.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Rocket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SquidVasion.SpaceDust">
+    <Position X="13.75" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SpaceDust.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SquidVasion.StaticGraphic">
+    <Position X="11" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAgAAAAAAAAACAEAAAAAAAAAAAAACA=</HashCode>
+      <FileName>StaticGraphic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

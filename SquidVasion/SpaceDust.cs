@@ -7,24 +7,24 @@ namespace SquidVasion
 {
     internal class SpaceDust : MotionGraphic
     {
-        public SpaceDust(Texture2D art, Vector2 velocity, int scale) : base(art, velocity, scale)
+        public SpaceDust(Texture2D art, Vector2 velocity, int scale, Texture2D debugPixel) : base(art, velocity, debugPixel, 2)
         {
-            _position = new Vector2(Game1.screenSize.X, Game1.rng.Next(0, Game1.screenSize.Y));
+            Position = new Vector2(Game1.rng.Next(0, Game1.screenSize.X), Game1.rng.Next(0, Game1.screenSize.Y));
             _velocity = velocity;
             _scale = scale;
         }
 
         public void UpdateSpaceDust()
         {
-            if(_position.X < -5)
+            if(Position.X < -5)
             {
-                _position = new Vector2(Game1.screenSize.X + 5, Game1.rng.Next(0, Game1.screenSize.Y));
+                Position = new Vector2(Game1.screenSize.X + 5, Game1.rng.Next(0, Game1.screenSize.Y));
                 _velocity.X = Game1.rng.Next(1, 5);
             }
 
-            _position.X += -_velocity.X;
+            Position += -_velocity;
 
-            Debug.WriteLine(_position);
+            //Debug.WriteLine(Position);
         }
     }
 }

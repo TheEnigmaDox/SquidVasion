@@ -7,22 +7,26 @@ namespace SquidVasion
     {
         protected int _scale = 1;
 
-        protected Vector2 _position;
+        public Vector2 Position { get; set; }
 
-        protected Texture2D _art;
+        public Rectangle Rect { get; protected set; }
+
+        public Texture2D _art;
 
         public StaticGraphic(Texture2D art, int scale = 1) 
         {
             _art = art; 
-            _position = new Vector2(Game1.screenSize.X / 2, Game1.screenSize.Y / 2);
+            Position = new Vector2(Game1.screenSize.X / 2, Game1.screenSize.Y / 2);
             _scale = scale;
+
+            Rect = new Rectangle((int)Position.X - _art.Width / 2, (int)Position.Y - _art.Height / 2, _art.Width, _art.Height);
         }
         
 
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(_art, 
-                _position,
+                Position,
                 new Rectangle(0, 0, _art.Width, _art.Height),
                 Color.White,
                 0f,

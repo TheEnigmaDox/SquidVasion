@@ -16,13 +16,13 @@ namespace SquidVasion
 
         Game1 _gameOne;
 
-        public Crosshair(Texture2D art, Game1 game1) : base(art) 
+        public Crosshair(Texture2D art, Game1 game1, int scale) : base(art, scale) 
         {
             _screenBounds = new Rectangle(0, 0, Game1.screenSize.X, Game1.screenSize.Y);
             _gameOne = game1;
         }
 
-        public void Update(MouseState mouseState)
+        public void Update(MouseState mouseState, Vector2 shipPosition)
         {
             _centrePoint = new Vector2(mouseState.X, mouseState.Y);
 
@@ -33,6 +33,11 @@ namespace SquidVasion
             else
             {
                 _tint = Color.White;
+            }
+
+            if(_centrePoint.X <= shipPosition.X)
+            {
+                _centrePoint.X = shipPosition.X + 10;
             }
 
             if (_screenBounds.Contains(_centrePoint))
@@ -57,7 +62,7 @@ namespace SquidVasion
                         _tint,
                         _rotation,
                         new Vector2(_art.Width / 2, _art.Height / 2),
-                        2f,
+                        _scale,
                         SpriteEffects.None,
                         0); 
             }
